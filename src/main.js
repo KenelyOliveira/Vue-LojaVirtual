@@ -6,9 +6,9 @@ import App from "./App";
 import VueRouter from "vue-router";
 
 //toras
-import Home from "./components/Home";
-import Pets from "./components/Pets";
-import About from "./components/About";
+import Home from "./views/Home";
+import Pets from "./views/Pets";
+import About from "./views/About";
 import Dogs from "./data/dogs";
 
 //import "vuetify/dist/vuetify.min.css";
