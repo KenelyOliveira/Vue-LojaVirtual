@@ -11,8 +11,11 @@
 
 
 <script>
+import axios from "axios";
 import { Dogs } from "../data/dogs";
 import Dog from "../components/Dog.vue";
+
+axios.defaults.baseURL = "https://dog.ceo/api";
 
 export default {
   components: {
@@ -22,6 +25,18 @@ export default {
     return {
       dogs: Dogs
     };
+  },
+  created() {
+    axios
+      .get("/breed/husky/images/random")
+      .then(response => {
+        const husky = this.dogs.find(dog => dog.breed === "husky");
+        husky.img = response.data.message;
+        //console.log(husky);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>
